@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const OrderSchema = new mongoose.Schema({
   address: {
     type: mongoose.Types.ObjectId,
-    required: true,
     ref: 'address',
   },
   complete: {
@@ -13,6 +12,11 @@ const OrderSchema = new mongoose.Schema({
   },
   transactionId: {
     type: String,
+  },
+  user: {
+    type: mongoose.Types.ObjectId,
+    required: true,
+    ref: 'user',
   },
 }, {
   timestamps: true,

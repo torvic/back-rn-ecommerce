@@ -8,11 +8,16 @@ const OrderItemSchema = new mongoose.Schema({
   option: {
     type: String,
   },
-  products: [{
+  product: {
     type: mongoose.Types.ObjectId,
     required: true,
     ref: 'product',
-  }],
+  },
+  order: {
+    type: mongoose.Types.ObjectId,
+    required: true,
+    ref: 'order',
+  },
 }, {
   timestamps: true,
 });

@@ -1,6 +1,14 @@
 /* eslint-disable no-underscore-dangle */
 const OrderItem = require('./orderItem.model');
 
+function updateOrderItem(id, info) {
+  return OrderItem.findByIdAndUpdate(id, info, { new: true });
+}
+
+function deleteOrderItem(id) {
+  return OrderItem.findByIdAndDelete(id);
+}
+
 function getAllOrderItemByOrderId(orderId) {
   const orderItems = OrderItem.find({ order: orderId }).populate('product').populate('order');
   return orderItems;
@@ -18,14 +26,6 @@ async function addNewOrderItem(orderItem) {
     createdAt: orderItemCreated.createdAt,
     updatedAt: orderItemCreated.updatedAt,
   };
-}
-
-function updateOrderItem(id, info) {
-  return OrderItem.findByIdAndUpdate(id, info, { new: true });
-}
-
-function deleteOrderItem(id) {
-  return OrderItem.findByIdAndDelete(id);
 }
 
 module.exports = {

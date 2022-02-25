@@ -1,6 +1,21 @@
 /* eslint-disable no-underscore-dangle */
 const { getOrCreateOrder } = require('../order/order.service');
-const { addNewOrderItem, getAllOrderItemByOrderId } = require('./orderItem.service');
+const {
+  addNewOrderItem, getAllOrderItemByOrderId, updateOrderItem, deleteOrderItem,
+} = require('./orderItem.service');
+
+async function updateOrderItemHandler(_, args) {
+  const { id } = args;
+  const info = args.input;
+  const orderItem = await updateOrderItem(id, info);
+  return orderItem;
+}
+
+async function deleteOrderItemHandler(_, args) {
+  const { id } = args;
+  const address = await deleteOrderItem(id);
+  return { message: 'Product deleted successfully', address };
+}
 
 async function getAllOrderItemNotCompleteHandler(_, args, context) {
   const { currentUser } = context;
@@ -30,4 +45,6 @@ async function addNewOrderItemHandler(_, args, context) {
 module.exports = {
   getAllOrderItemNotCompleteHandler,
   addNewOrderItemHandler,
+  updateOrderItemHandler,
+  deleteOrderItemHandler,
 };

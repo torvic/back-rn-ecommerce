@@ -1,6 +1,10 @@
 /* eslint-disable no-underscore-dangle */
 const Order = require('./order.model');
 
+function updateOrder(id, info) {
+  return Order.findByIdAndUpdate(id, info, { new: true });
+}
+
 async function getOrCreateOrder(order) {
   const orderFind = await Order.find(order);
 
@@ -20,4 +24,5 @@ async function getOrCreateOrder(order) {
 
 module.exports = {
   getOrCreateOrder,
+  updateOrder,
 };

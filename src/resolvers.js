@@ -1,4 +1,10 @@
-const { addNewOrderItemHandler, getAllOrderItemNotCompleteHandler } = require('./orderItem/orderItem.controller');
+const { addNewAddressHandler } = require('./address/address.controller');
+const {
+  addNewOrderItemHandler,
+  getAllOrderItemNotCompleteHandler,
+  updateOrderItemHandler,
+  deleteOrderItemHandler,
+} = require('./orderItem/orderItem.controller');
 const {
   getAllProductsHandler, addNewProductHandler, updateProductHandler, deleteProductHandler,
 } = require('./product/product.controller');
@@ -16,6 +22,9 @@ const resolvers = {
     updateProduct: updateProductHandler,
     deleteProduct: deleteProductHandler,
     addNewOrderItem: addNewOrderItemHandler,
+    updateOrderItem: updateOrderItemHandler,
+    deleteOrderItem: deleteOrderItemHandler,
+    addNewAddress: addNewAddressHandler,
   },
 };
 

@@ -1,10 +1,20 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
+  type Address {
+    _id: ID!
+    country: String!
+    fullName: String!
+    phoneNumber: String!
+    address: String!
+    city: String!
+    createdAt: String
+    updatedAt: String
+  }
 
   type Order {
     _id: ID!
-    address: String
+    address: ID!
     complete: Boolean!
     transactionId: Float
     user: ID!
@@ -94,6 +104,19 @@ const typeDefs = gql`
     product: ID!
   }
 
+  input UpdateOrderItemInput {
+    quantity: Int!
+    option: String
+  }
+
+  input AddressInput {
+    country: String!
+    fullName: String!
+    phoneNumber: String!
+    address: String!
+    city: String!
+  }
+
   type LoginPayload {
     user: User
     token: String!
@@ -101,6 +124,11 @@ const typeDefs = gql`
 
   type DeleteProductPayload {
     product: Product
+    message: String!
+  }
+
+  type DeleteOrderItemPayload {
+    orderItem: OrderItem
     message: String!
   }
 
@@ -127,6 +155,12 @@ const typeDefs = gql`
     deleteProduct(id: ID!): DeleteProductPayload!
     "Create an order item"
     addNewOrderItem(input: OrderItemInput!): OrderItemPayload
+    "Update order item"
+    updateOrderItem(id: ID!, input: UpdateOrderItemInput!): OrderItemPayload
+    "Delete order item"
+    deleteOrderItem(id: ID!): DeleteOrderItemPayload
+    "Create an address"
+    addNewAddress(input: AddressInput!): Address!
   }
 `;
 

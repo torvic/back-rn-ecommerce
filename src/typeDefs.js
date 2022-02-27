@@ -60,6 +60,8 @@ const typeDefs = gql`
     allProducts: [Product]
     "Get all order items not complete"
     getAllOrderItemNotComplete: [OrderItem]
+    "Get product by id"
+    getProductById(id: ID!): Product!
   }
 
   input CreateUserInput {

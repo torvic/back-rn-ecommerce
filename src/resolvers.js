@@ -6,7 +6,11 @@ const {
   deleteOrderItemHandler,
 } = require('./orderItem/orderItem.controller');
 const {
-  getAllProductsHandler, addNewProductHandler, updateProductHandler, deleteProductHandler,
+  getAllProductsHandler,
+  addNewProductHandler,
+  updateProductHandler,
+  deleteProductHandler,
+  getProductByIdHandler,
 } = require('./product/product.controller');
 const { createAccountHandler, logInUserHandler } = require('./user/user.controller');
 
@@ -14,6 +18,7 @@ const resolvers = {
   Query: {
     allProducts: getAllProductsHandler,
     getAllOrderItemNotComplete: getAllOrderItemNotCompleteHandler,
+    getProductById: getProductByIdHandler,
   },
   Mutation: {
     createAccount: createAccountHandler,

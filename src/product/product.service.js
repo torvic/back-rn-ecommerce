@@ -4,6 +4,10 @@ function getAllProducts() {
   return Product.find();
 }
 
+function getProductById(id) {
+  return Product.findById(id);
+}
+
 function addNewProduct(product) {
   return Product.create(product);
 }
@@ -18,6 +22,7 @@ function deleteProduct(id) {
 
 module.exports = {
   getAllProducts,
+  getProductById,
   addNewProduct,
   updateProduct,
   deleteProduct,

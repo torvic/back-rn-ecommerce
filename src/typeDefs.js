@@ -138,7 +138,7 @@ const typeDefs = gql`
     _id: ID!
     quantity: Int!
     option: String
-    product: ID!
+    product: Product!
     order: ID!
     createdAt: String
     updatedAt: String

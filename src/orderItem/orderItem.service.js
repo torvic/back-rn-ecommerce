@@ -2,7 +2,7 @@
 const OrderItem = require('./orderItem.model');
 
 function updateOrderItem(id, info) {
-  return OrderItem.findByIdAndUpdate(id, info, { new: true });
+  return OrderItem.findByIdAndUpdate(id, info, { new: true }).populate('product');
 }
 
 function deleteOrderItem(id) {

@@ -8,6 +8,7 @@ async function updateOrderItemHandler(_, args) {
   const { id } = args;
   const info = args.input;
   const orderItem = await updateOrderItem(id, info);
+  console.log('order item', orderItem);
   return orderItem;
 }
 

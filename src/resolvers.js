@@ -1,4 +1,5 @@
 const { addNewAddressHandler } = require('./address/address.controller');
+const { updateOrderHandler } = require('./order/order.controller');
 const {
   addNewOrderItemHandler,
   getAllOrderItemNotCompleteHandler,
@@ -30,6 +31,7 @@ const resolvers = {
     updateOrderItem: updateOrderItemHandler,
     deleteOrderItem: deleteOrderItemHandler,
     addNewAddress: addNewAddressHandler,
+    updateOrder: updateOrderHandler,
   },
 };
 

@@ -111,6 +111,11 @@ const typeDefs = gql`
     option: String
   }
 
+  input UpdateOrderInput {
+    complete: Boolean!
+    transactionId: Float
+  }
+
   input AddressInput {
     country: String!
     fullName: String!
@@ -163,6 +168,8 @@ const typeDefs = gql`
     deleteOrderItem(id: ID!): DeleteOrderItemPayload
     "Create an address"
     addNewAddress(input: AddressInput!): Address!
+    "Update order"
+    updateOrder(input: UpdateOrderInput!): Order
   }
 `;
 
